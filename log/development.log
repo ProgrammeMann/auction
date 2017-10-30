@@ -1,0 +1,881 @@
+  [1m[35m (169.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (149.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(951163835794286625)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20171029150321)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (113.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (45.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (41.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171029150321"]]
+  [1m[35m (16.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-29 15:07:12.223565"], ["updated_at", "2017-10-29 15:07:12.223565"]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(951163835794286625)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-10-30 11:54:27 +0300
+  [1m[35m (46.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:269:in `const_get'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:269:in `block in constantize'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:267:in `each'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:267:in `inject'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:267:in `constantize'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/http/request.rb:78:in `controller_class'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:43:in `controller'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:29:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-30 11:55:01 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.2ms)
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (155.2ms)
+Completed 200 OK in 610ms (Views: 544.6ms | ActiveRecord: 34.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 11:57:21 +0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:88:in `unknown_action!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:101:in `require_no_authentication'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:413:in `block in make_lambda'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `block in invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `each'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:130:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+.bundle/ruby/2.4.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-30 11:57:29 +0300
+  
+ActionController::RoutingError (uninitialized constant SessionsController):
+  
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:269:in `const_get'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:269:in `block in constantize'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:267:in `each'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:267:in `inject'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/inflector/methods.rb:267:in `constantize'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/http/request.rb:78:in `controller_class'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:43:in `controller'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:29:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-30 11:57:51 +0300
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for DeviseController):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:119:in `process'
+.bundle/ruby/2.4.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-30 11:59:44 +0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:88:in `unknown_action!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:101:in `require_no_authentication'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:413:in `block in make_lambda'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `block in invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `each'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:130:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+.bundle/ruby/2.4.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-30 11:59:52 +0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:88:in `unknown_action!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:101:in `require_no_authentication'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:413:in `block in make_lambda'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `block in invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `each'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:130:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+.bundle/ruby/2.4.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-30 11:59:55 +0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:88:in `unknown_action!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:101:in `require_no_authentication'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:413:in `block in make_lambda'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `block in invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `each'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:130:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+.bundle/ruby/2.4.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-30 12:00:26 +0300
+  
+ArgumentError ('/sessions' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:4:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/" for 127.0.0.1 at 2017-10-30 12:00:57 +0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:88:in `unknown_action!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:63:in `assert_is_devise_resource!'
+.bundle/ruby/2.4.0/gems/devise-4.3.0/app/controllers/devise_controller.rb:101:in `require_no_authentication'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:413:in `block in make_lambda'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `block in invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `each'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:507:in `invoke_before'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:130:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+.bundle/ruby/2.4.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/mapper.rb:46:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+.bundle/ruby/2.4.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+.bundle/ruby/2.4.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-10-30 12:03:26 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 21ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-30 12:03:35 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 55ms (Views: 29.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-10-30 12:03:40 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.1ms)
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-30 12:03:56 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oBLca/TotqmJhgn9trhfZKp+UrtBDjB2QI4DnoHPpBUMhWpXOSrKk7uNgoPq6xeeGv5ZBcRRn6Fa9oCoeNWtDg==", "user"=>{"email"=>"alala@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (75.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "alala@mail.ru"], ["LIMIT", 1]]
+  [1m[35mSQL (27.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "alala@mail.ru"], ["encrypted_password", "$2a$11$pmA75EEKfuoUZqOBVraWtuQgII2ygbQGUbLsEBAl4GDrfQ9XlDPza"], ["created_at", "2017-10-30 09:03:56.443595"], ["updated_at", "2017-10-30 09:03:56.443595"]]
+  [1m[35m (25.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-30 09:03:56.500854"], ["last_sign_in_at", "2017-10-30 09:03:56.500854"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2017-10-30 09:03:56.502220"], ["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 505ms (ActiveRecord: 133.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 12:03:56 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-10-30 12:04:05 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 57ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 12:04:05 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-10-30 12:04:18 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/devise/sessions" for 127.0.0.1 at 2017-10-30 12:05:25 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/devise/sessions"):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-30 12:05:33 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 12:05:33 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
