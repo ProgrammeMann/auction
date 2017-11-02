@@ -879,3 +879,1715 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-10-30 15:25:05 +0300
+  [1m[35m (8.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 23ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-30 15:25:13 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 45ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 15:25:13 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered .bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (4.5ms)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (25.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(951163835794286625)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLots (20171030130337)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (813.0ms)[0m  [1m[35mCREATE TABLE "lots" ("id" bigserial primary key, "title" character varying, "description" text, "start_price" integer, "photo" character varying, "start_datetime" timestamp, "end_datetime" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (27.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171030130337"]]
+  [1m[35m (45.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (33.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(951163835794286625)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(951163835794286625)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserIdToLots (20171030132352)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "lots" ADD "user_id" integer[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171030132352"]]
+  [1m[35m (29.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(951163835794286625)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-10-30 16:30:29 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LotsController#index as HTML
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (1.1ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 1967ms (Views: 1938.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-10-30 16:30:34 +0300
+Processing by LotsController#new as HTML
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (80.2ms)
+  Rendered lots/new.html.erb within layouts/application (81.5ms)
+Completed 200 OK in 122ms (Views: 106.3ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-10-30 16:31:01 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BeXxDDJZImO4D0NwZ13rgf4/wrxEUc9fBtBffUBZxXTElyTwoFbTVB5QCb7ChyBUWMokLKoEgpDJQM7Qk+PwgA==", "lot"=>{"title"=>"my_lot", "description"=>"desc", "start_price"=>"32", "photo"=>"", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"10", "start_datetime(3i)"=>"30", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"30", "end_datetime(1i)"=>"2017", "end_datetime(2i)"=>"10", "end_datetime(3i)"=>"30", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"57"}, "commit"=>"Create Lot"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "photo", "start_datetime", "end_datetime", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "my_lot"], ["description", "desc"], ["start_price", 32], ["photo", ""], ["start_datetime", "2017-10-30 13:30:00"], ["end_datetime", "2017-10-30 13:57:00"], ["created_at", "2017-10-30 13:31:01.317285"], ["updated_at", "2017-10-30 13:31:01.317285"]]
+  [1m[35m (92.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/1
+Completed 302 Found in 101ms (ActiveRecord: 93.2ms)
+
+
+Started GET "/lots/1" for 127.0.0.1 at 2017-10-30 16:31:01 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 53ms (Views: 24.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 16:31:04 +0300
+Processing by LotsController#index as HTML
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 24ms (Views: 21.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 16:35:27 +0300
+Processing by LotsController#index as HTML
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2017-10-30 16:35:29 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 16:35:36 +0300
+Processing by LotsController#index as HTML
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 16:36:05 +0300
+Processing by LotsController#index as HTML
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-10-30 16:36:07 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RFUhf/EfPmOaHf8Nq/TBVH42Ylhs/tie6v+pPgSeDhrowpdDPN1CWagWdHP3p4muzrZp5umhd0nwhyoI/YQHAQ=="}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 32ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 16:36:07 +0300
+Processing by LotsController#index as HTML
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.8ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 16:36:48 +0300
+Processing by LotsController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-30 16:36:49 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.0ms)
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 83ms (Views: 54.9ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-10-30 16:36:54 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s+eeUyZK3gu0fSUfA47W3mv+18Owcr4JcNoix158vg9Qd5HuCpk87gBNrfNXxu1tByrxFGXzAUUeGn0CoCteUA==", "user"=>{"email"=>"alala@mail.ru", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "alala@mail.ru"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", "2017-10-30 13:36:55.104682"], ["sign_in_count", 2], ["updated_at", "2017-10-30 13:36:55.105904"], ["id", 1]]
+  [1m[35m (23.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 471ms (ActiveRecord: 25.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 16:36:55 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 48ms (Views: 37.7ms | ActiveRecord: 6.3ms)
+
+
+  [1m[36mLot Load (0.9ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" ORDER BY "lots"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2017-10-30 16:42:14 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 88ms (Views: 47.7ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-10-30 16:42:16 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (9.2ms)
+  Rendered lots/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 37ms (Views: 32.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/lots/" for 127.0.0.1 at 2017-10-30 16:48:39 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 72ms (Views: 36.4ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-10-30 16:48:42 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (9.0ms)
+  Rendered lots/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-10-30 16:48:56 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZTqTyV6rc+bIrg7GfSM/rrtAwq1kqAn9IHDsZajxcTmPqmaOGRPK8qqqf7hyxlQAgjGhJe7lYor5bKU8ZajEvw==", "lot"=>{"title"=>"my_lot1", "description"=>"1", "start_price"=>"12", "photo"=>"", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"10", "start_datetime(3i)"=>"30", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"48", "end_datetime(1i)"=>"2017", "end_datetime(2i)"=>"10", "end_datetime(3i)"=>"31", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"48"}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "photo", "start_datetime", "end_datetime", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "my_lot1"], ["description", "1"], ["start_price", 12], ["photo", ""], ["start_datetime", "2017-10-30 13:48:00"], ["end_datetime", "2017-10-31 13:48:00"], ["created_at", "2017-10-30 13:48:56.875518"], ["updated_at", "2017-10-30 13:48:56.875518"]]
+  [1m[35m (52.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/2
+Completed 406 Not Acceptable in 62ms (ActiveRecord: 53.9ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/lots_controller.rb:30:in `create'
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 16:51:35 +0300
+  
+SyntaxError (/home/pavlov/fs/auction/app/controllers/lots_controller.rb:68: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/lots_controller.rb:68: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 16:52:09 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 92ms (Views: 44.3ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-10-30 16:52:14 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (9.2ms)
+  Rendered lots/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 34ms (Views: 29.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-10-30 16:52:31 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tXdjDKhNeAvVAbmuTkDMu57DNs6HkX9jJ+D0C0y8RkBf55ZL7/XBH7cFyNBBpacVp7JVRg3cFBT+/L1SgeXzxg==", "lot"=>{"title"=>"new_lot2", "description"=>"2", "start_price"=>"2", "photo"=>"", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"10", "start_datetime(3i)"=>"30", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"52", "end_datetime(1i)"=>"2019", "end_datetime(2i)"=>"10", "end_datetime(3i)"=>"30", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"52"}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `lots' for #<User:0x007f51658a0788>):
+  
+app/controllers/lots_controller.rb:28:in `create'
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 16:57:49 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 27ms (Views: 22.9ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/lots/new" for 127.0.0.1 at 2017-10-30 17:07:47 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (64.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (55.0ms)
+  Rendered lots/new.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 862ms (Views: 458.7ms | ActiveRecord: 64.0ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-10-30 17:13:37 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v6bJT0KlenYj3U3OWAkdMtJdSrs5ZhbyhHgWqIWN9D9VNjwIBR3DYkHZPLBX7Hac6ywpM7MrfYVdZF/xSNRBuQ==", "lot"=>{"title"=>"new_lot2", "description"=>"s", "start_price"=>"12", "photo"=>"", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"10", "start_datetime(3i)"=>"30", "start_datetime(4i)"=>"14", "start_datetime(5i)"=>"07", "end_datetime(1i)"=>"2021", "end_datetime(2i)"=>"10", "end_datetime(3i)"=>"30", "end_datetime(4i)"=>"14", "end_datetime(5i)"=>"07"}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `lots' for #<User:0x007f51544f34c0>):
+  
+app/controllers/lots_controller.rb:28:in `create'
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:14:28 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 174ms (Views: 42.8ms | ActiveRecord: 50.4ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-10-30 17:14:32 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (9.2ms)
+  Rendered lots/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 34ms (Views: 30.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-10-30 17:14:44 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SdufrPamm+Nd/lKdH/b2W/szLcGy+AIBn+o4+VHIii6jS2rrsR4i9z/6I+MQE531wkJOSTi1aXZG9nGgnJE/qA==", "lot"=>{"title"=>"new_lot2", "description"=>"d", "start_price"=>"12", "photo"=>"", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"10", "start_datetime(3i)"=>"30", "start_datetime(4i)"=>"14", "start_datetime(5i)"=>"14", "end_datetime(1i)"=>"2020", "end_datetime(2i)"=>"10", "end_datetime(3i)"=>"30", "end_datetime(4i)"=>"14", "end_datetime(5i)"=>"14"}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.0ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "photo", "start_datetime", "end_datetime", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "new_lot2"], ["description", "d"], ["start_price", 12], ["photo", ""], ["start_datetime", "2017-10-30 14:14:00"], ["end_datetime", "2020-10-30 14:14:00"], ["created_at", "2017-10-30 14:14:44.278716"], ["updated_at", "2017-10-30 14:14:44.278716"], ["user_id", 1]]
+  [1m[35m (134.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/3
+Completed 302 Found in 277ms (ActiveRecord: 141.3ms)
+
+
+Started GET "/lots/3" for 127.0.0.1 at 2017-10-30 17:14:44 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 55ms (Views: 21.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:14:47 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 27ms (Views: 23.3ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mLot Load (1.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-10-30 17:19:46 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NnCizRhMpRCc4hIQizxnOaA+WsdgtfmAI0mSoT6vbJEWRxiA1tHb6RbEKSfxRHVNugobk1/p6XAFFmIM2HDRIw=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 17:19:47 +0300
+Processing by LotsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-30 17:19:47 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.1ms)
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/sessions/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-10-30 17:19:53 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered .bundle/ruby/2.4.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-10-30 17:20:12 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U0Uf0q5C3kNd/1hZcPKxGqc2AV7fpqWkxTQIh+2zfX3WFEtNqFg/Oi+2YnyssEj75pPOUJW5BuW/4EMCG2pBxQ==", "user"=>{"email"=>"my@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "my@mail.ru"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "my@mail.ru"], ["encrypted_password", "$2a$11$/PsqQ.NrEqwbUTHlHESy6.QyVbf90MU7UbMC7maLaG8koRC73S9WO"], ["created_at", "2017-10-30 14:20:12.566040"], ["updated_at", "2017-10-30 14:20:12.566040"]]
+  [1m[35m (17.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-30 14:20:12.585889"], ["last_sign_in_at", "2017-10-30 14:20:12.585889"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2017-10-30 14:20:12.586850"], ["id", 2]]
+  [1m[35m (39.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 487ms (ActiveRecord: 59.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-30 17:20:12 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 30ms (Views: 25.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/lots/3" for 127.0.0.1 at 2017-10-30 17:20:21 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 29ms (Views: 23.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/lots/3/edit" for 127.0.0.1 at 2017-10-30 17:20:27 +0300
+Processing by LotsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering lots/edit.html.erb within layouts/application
+  Rendered lots/_form.html.erb (13.9ms)
+  Rendered lots/edit.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 84ms (Views: 36.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:20:29 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 34ms (Views: 29.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/lots/1/edit" for 127.0.0.1 at 2017-10-30 17:29:42 +0300
+Processing by LotsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/edit.html.erb within layouts/application
+  Rendered lots/_form.html.erb (9.4ms)
+  Rendered lots/edit.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 36ms (Views: 31.0ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/lots/1" for 127.0.0.1 at 2017-10-30 17:29:48 +0300
+Processing by LotsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+TzALhxIHm1FjrZybDfeSwF5csqO2+60gYX/c3rWgvGSqNpZe6I/yIazbKu2BH7ngijWKbZSQ4DhZiIR/G4J7Q==", "lot"=>{"title"=>"my_lot", "description"=>"desc", "start_price"=>"321", "photo"=>"", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"10", "start_datetime(3i)"=>"30", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"30", "end_datetime(1i)"=>"2017", "end_datetime(2i)"=>"10", "end_datetime(3i)"=>"30", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"57"}, "commit"=>"Update Lot", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "lots" SET "start_price" = $1, "updated_at" = $2 WHERE "lots"."id" = $3[0m  [["start_price", 321], ["updated_at", "2017-10-30 14:29:48.842209"], ["id", 1]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/1
+Completed 406 Not Acceptable in 20ms (ActiveRecord: 11.4ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/lots_controller.rb:39:in `update'
+Started GET "/lots/1" for 127.0.0.1 at 2017-10-30 17:30:01 +0300
+  
+SyntaxError (/home/pavlov/fs/auction/app/controllers/lots_controller.rb:53: syntax error, unexpected keyword_end, expecting end-of-input
+  end
+     ^):
+  
+app/controllers/lots_controller.rb:53: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/lots/1" for 127.0.0.1 at 2017-10-30 17:30:15 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 161ms (Views: 92.0ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/lots/1/edit" for 127.0.0.1 at 2017-10-30 17:30:18 +0300
+Processing by LotsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/edit.html.erb within layouts/application
+  Rendered lots/_form.html.erb (10.1ms)
+  Rendered lots/edit.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 35ms (Views: 30.5ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/lots/1" for 127.0.0.1 at 2017-10-30 17:30:21 +0300
+Processing by LotsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2AX72rigttHkrhOuG9XJlPf8q3w6M0H4TqvKIeadb9qzkeGt30qXdCeTyXfB5mk4dK0PnwK67MwuSBdDYCXkxg==", "lot"=>{"title"=>"my_lot", "description"=>"desc", "start_price"=>"3211", "photo"=>"", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"10", "start_datetime(3i)"=>"30", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"30", "end_datetime(1i)"=>"2017", "end_datetime(2i)"=>"10", "end_datetime(3i)"=>"30", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"57"}, "commit"=>"Update Lot", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.2ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "lots" SET "start_price" = $1, "updated_at" = $2 WHERE "lots"."id" = $3[0m  [["start_price", 3211], ["updated_at", "2017-10-30 14:30:21.936787"], ["id", 1]]
+  [1m[35m (96.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/1
+Completed 302 Found in 107ms (ActiveRecord: 98.4ms)
+
+
+Started GET "/lots/1" for 127.0.0.1 at 2017-10-30 17:30:22 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (1.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 29ms (Views: 22.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:31:43 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 24ms (Views: 20.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:32:49 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 66ms (Views: 35.0ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/lots/3/edit" for 127.0.0.1 at 2017-10-30 17:32:55 +0300
+Processing by LotsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 21.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots/3/edit" for 127.0.0.1 at 2017-10-30 17:32:59 +0300
+Processing by LotsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 41ms (Views: 36.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:33:00 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (1.0ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 28ms (Views: 23.5ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/lots/2" for 127.0.0.1 at 2017-10-30 17:33:09 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1fRU3rYiNerXlXUX2hpMLbSPOVaiBFmWYn/jbmUGIXDI8Ijg25/ju4Trth9RcMxHVofL5n0l/tAo/PS+PKO9+w==", "id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "lots" WHERE "lots"."id" = $1[0m  [["id", 2]]
+  [1m[35m (42.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots
+Completed 302 Found in 50ms (ActiveRecord: 44.5ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:33:09 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 31ms (Views: 26.0ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/lots/1" for 127.0.0.1 at 2017-10-30 17:33:16 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gvIQFOR0U2wpfDdshwMReZjnieYOtpE3EEZ8gnj4a0Wf9swqicmFPXoC9GQMaZETeu97VtGXNnFaxWtSIV33zg==", "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "lots" WHERE "lots"."id" = $1[0m  [["id", 1]]
+  [1m[35m (15.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots
+Completed 302 Found in 21ms (ActiveRecord: 16.8ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:33:16 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 26ms (Views: 21.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:34:46 +0300
+  
+SyntaxError (/home/pavlov/fs/auction/app/controllers/lots_controller.rb:67: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/lots_controller.rb:67: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:34:54 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (1.2ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 97ms (Views: 48.7ms | ActiveRecord: 10.0ms)
+
+
+Started DELETE "/lots/3" for 127.0.0.1 at 2017-10-30 17:34:58 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ADhrmlVpFLtvQBA25qC628RftB/De5PeVZIhScxKcv4dPLekONTC6jw+0z5tyjqxJldGrxxaNJgfETaZle/udQ==", "id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `user_id' for #<User:0x007f51663ad108>):
+  
+app/controllers/lots_controller.rb:52:in `destroy'
+Started DELETE "/lots/3" for 127.0.0.1 at 2017-10-30 17:35:30 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ADhrmlVpFLtvQBA25qC628RftB/De5PeVZIhScxKcv4dPLekONTC6jw+0z5tyjqxJldGrxxaNJgfETaZle/udQ==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 9.0ms)
+
+
+  
+NoMethodError (undefined method `user_id' for #<User:0x007f516535e270>):
+  
+app/controllers/lots_controller.rb:52:in `destroy'
+Started DELETE "/lots/3" for 127.0.0.1 at 2017-10-30 17:35:56 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ADhrmlVpFLtvQBA25qC628RftB/De5PeVZIhScxKcv4dPLekONTC6jw+0z5tyjqxJldGrxxaNJgfETaZle/udQ==", "id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 8.2ms)
+
+
+  
+NoMethodError (undefined method `user_id' for #<User:0x007f51543c3c58>):
+  
+app/controllers/lots_controller.rb:52:in `destroy'
+Started DELETE "/lots/3" for 127.0.0.1 at 2017-10-30 17:37:01 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ADhrmlVpFLtvQBA25qC628RftB/De5PeVZIhScxKcv4dPLekONTC6jw+0z5tyjqxJldGrxxaNJgfETaZle/udQ==", "id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 11.1ms)
+
+
+  
+NoMethodError (undefined method `user_id' for #<User:0x007f51604cea88>):
+  
+app/controllers/lots_controller.rb:52:in `destroy'
+Started GET "/lots" for 127.0.0.1 at 2017-10-30 17:37:14 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 28ms (Views: 23.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 14:43:00 +0300
+  [1m[35m (35.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (71.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (48.3ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (69.9ms)
+Completed 200 OK in 599ms (Views: 314.9ms | ActiveRecord: 211.2ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 14:54:14 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 80ms (Views: 32.4ms | ActiveRecord: 8.8ms)
+
+
+Started DELETE "/lots/3" for 127.0.0.1 at 2017-11-01 14:54:18 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XL+lzPhYgTB9X6YAbA9iBMg60d2I/I3rEPKfLgdwUf5Bu3nyleVXYS4hZQjnZeJuKjIjbVfdKq1acYj+XtXNdQ==", "id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/lots
+Completed 302 Found in 35ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 14:54:18 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 33ms (Views: 28.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-11-01 14:54:23 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (66.8ms)
+  Rendered lots/new.html.erb within layouts/application (68.4ms)
+Completed 200 OK in 129ms (Views: 85.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-11-01 14:54:32 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lWu/0YDKFXlZrjwbQqujmujN0rqwx1byNB4WbLQYom2Qnts/DugFgNKI/uRyXKlxueQyPFA+4u1k147EJ+An8g==", "lot"=>{"title"=>"ddd", "description"=>"ddd", "start_price"=>"34", "photo"=>"", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"11", "start_datetime(3i)"=>"1", "start_datetime(4i)"=>"11", "start_datetime(5i)"=>"54", "end_datetime(1i)"=>"2019", "end_datetime(2i)"=>"11", "end_datetime(3i)"=>"1", "end_datetime(4i)"=>"11", "end_datetime(5i)"=>"54"}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (38.7ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "photo", "start_datetime", "end_datetime", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "ddd"], ["description", "ddd"], ["start_price", 34], ["photo", ""], ["start_datetime", "2017-11-01 11:54:00"], ["end_datetime", "2019-11-01 11:54:00"], ["created_at", "2017-11-01 11:54:32.562202"], ["updated_at", "2017-11-01 11:54:32.562202"], ["user_id", 2]]
+  [1m[35m (101.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/4
+Completed 302 Found in 287ms (ActiveRecord: 141.3ms)
+
+
+Started GET "/lots/4" for 127.0.0.1 at 2017-11-01 14:54:32 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 49ms (Views: 26.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 14:54:34 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/lots/4" for 127.0.0.1 at 2017-11-01 14:54:40 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eTsYSc2B7sej3SMOudJvbnJSe+PUzGCLr6LczK1vVFBkP8R3oDw4lvCj4AYyuO8EkFqJUwvtx83lIcsc9MrI2w==", "id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "lots" WHERE "lots"."id" = $1[0m  [["id", 4]]
+  [1m[35m (43.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots
+Completed 302 Found in 49ms (ActiveRecord: 44.3ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 14:54:40 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 26ms (Views: 21.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 14:55:25 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 72ms (Views: 39.7ms | ActiveRecord: 8.5ms)
+
+
+Started DELETE "/lots/3" for 127.0.0.1 at 2017-11-01 14:55:28 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"r1slX95pYKrQykEFnY2+2/3a015/WHAjQv6TpV+vpq+yX/lhs9S2+4O0gg0W5z6xH9Ih7qB512UIfYR1Bgo6JA==", "id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+No template found for LotsController#destroy, rendering head :no_content
+Completed 204 No Content in 37ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 14:56:16 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 64ms (Views: 33.1ms | ActiveRecord: 8.3ms)
+
+
+Started DELETE "/lots/3" for 127.0.0.1 at 2017-11-01 14:56:19 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ucvw1cowyw7jqPrs1nK4RsIdyUWN3e5K/EwwMIEBxoukzyzrp40dX7DWOeRdGDgsIBU79VL8SQy2zyfg2KRaAA==", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (1.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/lots
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 14:56:19 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 29ms (Views: 22.9ms | ActiveRecord: 1.0ms)
+
+
+  [1m[35m (55.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(951163835794286625)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemovePhotoFromLots (20171101123040)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (254.2ms)[0m  [1m[35mALTER TABLE "lots" DROP "photo"[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171101123040"]]
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (61.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(951163835794286625)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (33.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(951163835794286625)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAttachmentPhotoToProducts (20171101123943)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(951163835794286625)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(951163835794286625)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAttachmentPhotoToLots (20171101124216)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(951163835794286625)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(951163835794286625)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAttachmentPhotoToLots (20171101124216)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (94.2ms)[0m  [1m[35mALTER TABLE "lots" ADD "photo_file_name" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "lots" ADD "photo_content_type" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "lots" ADD "photo_file_size" integer[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "lots" ADD "photo_updated_at" timestamp[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171101124216"]]
+  [1m[35m (14.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(951163835794286625)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 15:47:42 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 11.7ms)
+
+
+  
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007f5c91689f58>):
+  
+app/models/lot.rb:2:in `<class:Lot>'
+app/models/lot.rb:1:in `<top (required)>'
+app/controllers/lots_controller.rb:8:in `index'
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 15:50:13 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.8ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (34.5ms)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 10.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for #<Lot:0x007f5c80085aa0>):
+    21:         <td><%= lot.title %></td>
+    22:         <td><%= lot.description %></td>
+    23:         <td><%= lot.start_price %></td>
+    24:         <td><%= lot.photo %></td>
+    25:         <td><%= lot.start_datetime %></td>
+    26:         <td><%= lot.end_datetime %></td>
+    27:         <td><%= link_to 'Show', lot %></td>
+  
+app/views/lots/index.html.erb:24:in `block in _app_views_lots_index_html_erb__90269303816215157_70017631479680'
+app/views/lots/index.html.erb:19:in `_app_views_lots_index_html_erb__90269303816215157_70017631479680'
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 15:50:55 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (21.8ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for #<Lot:0x007f5c88020b48>):
+    21:         <td><%= lot.title %></td>
+    22:         <td><%= lot.description %></td>
+    23:         <td><%= lot.start_price %></td>
+    24:         <!-- <td><%= lot.photo %></td> -->
+    25:         <td><%= lot.start_datetime %></td>
+    26:         <td><%= lot.end_datetime %></td>
+    27:         <td><%= link_to 'Show', lot %></td>
+  
+app/views/lots/index.html.erb:24:in `block in _app_views_lots_index_html_erb__90269303816215157_70017597098000'
+app/views/lots/index.html.erb:19:in `_app_views_lots_index_html_erb__90269303816215157_70017597098000'
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 15:50:58 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (21.4ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for #<Lot:0x007f5c915800f8>):
+    21:         <td><%= lot.title %></td>
+    22:         <td><%= lot.description %></td>
+    23:         <td><%= lot.start_price %></td>
+    24:         <!-- <td><%= lot.photo %></td> -->
+    25:         <td><%= lot.start_datetime %></td>
+    26:         <td><%= lot.end_datetime %></td>
+    27:         <td><%= link_to 'Show', lot %></td>
+  
+app/views/lots/index.html.erb:24:in `block in _app_views_lots_index_html_erb__90269303816215157_70017776338980'
+app/views/lots/index.html.erb:19:in `_app_views_lots_index_html_erb__90269303816215157_70017776338980'
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 15:52:37 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 45ms (Views: 38.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-11-01 15:53:01 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (36.5ms)
+  Rendered lots/new.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 60ms (Views: 56.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-11-01 15:53:35 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hmDifyGRBjaz0n93lb6MuujHQyHg/QBOIy9IHH42UmCDlYaRr7MWzzj0vYilSYZRue6jpwAEtFFz5tC07c7X/w==", "lot"=>{"title"=>"nexus", "description"=>"five", "start_price"=>"12000", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"11", "start_datetime(3i)"=>"1", "start_datetime(4i)"=>"12", "start_datetime(5i)"=>"53", "end_datetime(1i)"=>"2017", "end_datetime(2i)"=>"12", "end_datetime(3i)"=>"1", "end_datetime(4i)"=>"12", "end_datetime(5i)"=>"53", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007f5c88612cb8 @tempfile=#<Tempfile:/tmp/RackMultipart20171101-5286-1khp3x0.png>, @original_filename="Nexus_5_Front_View.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"lot[photo]\"; filename=\"Nexus_5_Front_View.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'photo' for Lot.):
+  
+app/controllers/lots_controller.rb:31:in `create'
+Started POST "/lots" for 127.0.0.1 at 2017-11-01 15:54:59 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hmDifyGRBjaz0n93lb6MuujHQyHg/QBOIy9IHH42UmCDlYaRr7MWzzj0vYilSYZRue6jpwAEtFFz5tC07c7X/w==", "lot"=>{"title"=>"nexus", "description"=>"five", "start_price"=>"12000", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"11", "start_datetime(3i)"=>"1", "start_datetime(4i)"=>"12", "start_datetime(5i)"=>"53", "end_datetime(1i)"=>"2017", "end_datetime(2i)"=>"12", "end_datetime(3i)"=>"1", "end_datetime(4i)"=>"12", "end_datetime(5i)"=>"53", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007f5c7c2cd168 @tempfile=#<Tempfile:/tmp/RackMultipart20171101-5286-1crjn8r.png>, @original_filename="Nexus_5_Front_View.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"lot[photo]\"; filename=\"Nexus_5_Front_View.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :photo
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "start_datetime", "end_datetime", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "nexus"], ["description", "five"], ["start_price", 12000], ["start_datetime", "2017-11-01 12:53:00"], ["end_datetime", "2017-12-01 12:53:00"], ["created_at", "2017-11-01 12:54:59.746246"], ["updated_at", "2017-11-01 12:54:59.746246"], ["user_id", 2]]
+  [1m[35m (64.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/5
+Completed 302 Found in 119ms (ActiveRecord: 74.7ms)
+
+
+Started GET "/lots/5" for 127.0.0.1 at 2017-11-01 15:54:59 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (30.8ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 61ms (Views: 22.7ms | ActiveRecord: 31.9ms)
+
+
+Started GET "/lots/5" for 127.0.0.1 at 2017-11-01 15:57:00 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    25:   <%= @lot.end_datetime %>
+    26: </p>
+    27: 
+    28: <%= image_tag @product.photo.url(:medium) %>
+    29: 
+    30: <%= link_to 'Edit', edit_lot_path(@lot) %> |
+    31: <%= link_to 'Back', lots_path %>
+  
+app/views/lots/show.html.erb:28:in `_app_views_lots_show_html_erb__136310933803436569_70017632910980'
+Started GET "/lots/" for 127.0.0.1 at 2017-11-01 16:05:49 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 6.0ms)
+
+
+  
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007f5c88bc6cb8>):
+  
+app/models/lot.rb:2:in `<class:Lot>'
+app/models/lot.rb:1:in `<top (required)>'
+app/controllers/lots_controller.rb:8:in `index'
+Started GET "/lots/" for 127.0.0.1 at 2017-11-01 16:06:56 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.9ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 281ms (Views: 236.1ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/lots/5" for 127.0.0.1 at 2017-11-01 16:07:01 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    25:   <%= @lot.end_datetime %>
+    26: </p>
+    27: 
+    28: <%= image_tag @product.photo.url(:medium) %>
+    29: 
+    30: <%= link_to 'Edit', edit_lot_path(@lot) %> |
+    31: <%= link_to 'Back', lots_path %>
+  
+app/views/lots/show.html.erb:28:in `_app_views_lots_show_html_erb__1099081608237679642_70257008039480'
+Started GET "/lots/" for 127.0.0.1 at 2017-11-01 16:07:04 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-11-01 16:07:06 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (2.2ms)
+  Rendered lots/new.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/home/pavlov/fs/auction/app/views/lots/_form.html.erb:1: syntax error, unexpected tLABEL
+odel: lot, local: true), html: {multipart: true} do |form| @
+                              ^
+/home/pavlov/fs/auction/app/views/lots/_form.html.erb:1: syntax error, unexpected keyword_do_block, expecting keyword_end
+e), html: {multipart: true} do |form| @output_buffer.safe_ap
+                              ^
+/home/pavlov/fs/auction/app/views/lots/_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/lots/_form.html.erb:1: syntax error, unexpected tLABEL
+app/views/lots/_form.html.erb:1: syntax error, unexpected keyword_do_block, expecting keyword_end
+app/views/lots/_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/lots/new.html.erb:3:in `_app_views_lots_new_html_erb__1712724139724645171_70257120428320'
+Started GET "/lots/" for 127.0.0.1 at 2017-11-01 16:07:31 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 28ms (Views: 23.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-11-01 16:07:33 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (142.2ms)
+  Rendered lots/new.html.erb within layouts/application (143.5ms)
+Completed 200 OK in 167ms (Views: 163.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-11-01 16:07:47 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ikIJFzWq/pG4REIHvPvp7yP/O071M3pPwX8EJ/1BJ8uPt235u4juaDNigPiMDOMEctbbyBXKzlCRtpyPbrmiVA==", "lot"=>{"title"=>"й", "description"=>"й", "start_price"=>"123", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"11", "start_datetime(3i)"=>"1", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"07", "end_datetime(1i)"=>"2021", "end_datetime(2i)"=>"11", "end_datetime(3i)"=>"1", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"07", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fcc05576fb0 @tempfile=#<Tempfile:/tmp/RackMultipart20171101-8375-1qc2vrz>, @original_filename="шаг sgd", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"lot[photo]\"; filename=\"\xD1\x88\xD0\xB0\xD0\xB3 sgd\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.5ms)
+
+
+  
+Paperclip::Errors::MissingRequiredValidatorError (Paperclip::Errors::MissingRequiredValidatorError):
+  
+app/controllers/lots_controller.rb:31:in `create'
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 16:08:21 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 77ms (Views: 40.5ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-11-01 16:08:25 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (9.1ms)
+  Rendered lots/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 35ms (Views: 30.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-11-01 16:08:37 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hZTe6nxttEEm8+yuQxDvCB7Jf3VJh3UWLkXLpAau4KyAYboE8k+kuK3VLlFz5+XjT+Cf86l+wQl+jFMMlVZlMw==", "lot"=>{"title"=>"qq", "description"=>"qqq", "start_price"=>"123", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"11", "start_datetime(3i)"=>"1", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"08", "end_datetime(1i)"=>"2019", "end_datetime(2i)"=>"11", "end_datetime(3i)"=>"1", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"08", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fcc046a5928 @tempfile=#<Tempfile:/tmp/RackMultipart20171101-8375-xqyg26.png>, @original_filename="иконка.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"lot[photo]\"; filename=\"\xD0\xB8\xD0\xBA\xD0\xBE\xD0\xBD\xD0\xBA\xD0\xB0.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Command :: file -b --mime '/tmp/93b382db1f7bb3990c3877eb331585bf20171101-8375-16uqnlo.png'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/93b382db1f7bb3990c3877eb331585bf20171101-8375-essjo8.png'
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "start_datetime", "end_datetime", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "qq"], ["description", "qqq"], ["start_price", 123], ["start_datetime", "2017-11-01 13:08:00"], ["end_datetime", "2019-11-01 13:08:00"], ["created_at", "2017-11-01 13:08:38.328436"], ["updated_at", "2017-11-01 13:08:38.328436"], ["user_id", 2], ["photo_file_name", "иконка.png"], ["photo_content_type", "image/png"], ["photo_file_size", 7197], ["photo_updated_at", "2017-11-01 13:08:37.841108"]]
+  [1m[35m (49.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/6
+Completed 302 Found in 562ms (ActiveRecord: 50.8ms)
+
+
+Started GET "/lots/6" for 127.0.0.1 at 2017-11-01 16:08:38 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for nil:NilClass):
+    25:   <%= @lot.end_datetime %>
+    26: </p>
+    27: 
+    28: <%= image_tag @product.photo.url(:medium) %>
+    29: 
+    30: <%= link_to 'Edit', edit_lot_path(@lot) %> |
+    31: <%= link_to 'Back', lots_path %>
+  
+app/views/lots/show.html.erb:28:in `_app_views_lots_show_html_erb__1099081608237679642_70257109162140'
+Started GET "/lots/6" for 127.0.0.1 at 2017-11-01 16:09:22 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 26ms (Views: 20.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/system/lots/photos/000/000/006/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png?1509541717" for 127.0.0.1 at 2017-11-01 16:09:23 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/lots/photos/000/000/006/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png"):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/lots/6/edit" for 127.0.0.1 at 2017-11-01 16:09:28 +0300
+Processing by LotsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering lots/edit.html.erb within layouts/application
+  Rendered lots/_form.html.erb (8.5ms)
+  Rendered lots/edit.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 41ms (Views: 26.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/system/lots/photos/000/000/006/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png?1509541717" for 127.0.0.1 at 2017-11-01 16:09:28 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/lots/photos/000/000/006/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png"):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/system/lots/photos/000/000/006/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png?1509541717" for 127.0.0.1 at 2017-11-01 16:09:31 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/lots/photos/000/000/006/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png"):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-11-01 16:09:35 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 23.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots/6" for 127.0.0.1 at 2017-11-01 16:09:38 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 28ms (Views: 22.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/system/lots/photos/000/000/006/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png?1509541717" for 127.0.0.1 at 2017-11-01 16:09:38 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/lots/photos/000/000/006/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png"):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/lots/6" for 127.0.0.1 at 2017-11-01 16:11:32 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 75ms (Views: 18.9ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/system/photos/6/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png?1509541717" for 127.0.0.1 at 2017-11-01 16:11:32 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/system/photos/6/medium/%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png"):
+  
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:28:in `block in call'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
+.bundle/ruby/2.4.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+.bundle/ruby/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+.bundle/ruby/2.4.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+.bundle/ruby/2.4.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+.bundle/ruby/2.4.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+.bundle/ruby/2.4.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/configuration.rb:225:in `call'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:605:in `handle_request'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:437:in `process_client'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/server.rb:301:in `block in run'
+.bundle/ruby/2.4.0/gems/puma-3.10.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/lots/" for 127.0.0.1 at 2017-11-01 16:11:36 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 31ms (Views: 25.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-11-01 16:11:38 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (12.1ms)
+  Rendered lots/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-11-01 16:11:52 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KPDG6uEDzqPDqEDKcQxHz5w6NV2Z+FeqsTXNmil8k1EtBaIEbyHeWkiOgjVB+00kzRPV23kB47Xh/FUyuoQWzg==", "lot"=>{"title"=>"ldcld", "description"=>"dcd", "start_price"=>"213", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"11", "start_datetime(3i)"=>"1", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"11", "end_datetime(1i)"=>"2022", "end_datetime(2i)"=>"11", "end_datetime(3i)"=>"1", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"11", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fcbf8495f68 @tempfile=#<Tempfile:/tmp/RackMultipart20171101-8375-1651mz3.png>, @original_filename="карта.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"lot[photo]\"; filename=\"\xD0\xBA\xD0\xB0\xD1\x80\xD1\x82\xD0\xB0.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Command :: file -b --mime '/tmp/8c08c9951556b4d0af32105d65ee376620171101-8375-1ygkand.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/8c08c9951556b4d0af32105d65ee376620171101-8375-w99k30.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/8c08c9951556b4d0af32105d65ee376620171101-8375-w99k30.png[0]'
+Command :: convert '/tmp/8c08c9951556b4d0af32105d65ee376620171101-8375-w99k30.png[0]' -auto-orient -resize "300x300>" '/tmp/688d946bdd5b2effbcbb9a7965717be220171101-8375-lfahgm'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/8c08c9951556b4d0af32105d65ee376620171101-8375-w99k30.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/8c08c9951556b4d0af32105d65ee376620171101-8375-w99k30.png[0]'
+Command :: convert '/tmp/8c08c9951556b4d0af32105d65ee376620171101-8375-w99k30.png[0]' -auto-orient -resize "100x100>" '/tmp/688d946bdd5b2effbcbb9a7965717be220171101-8375-uihc5m'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/8c08c9951556b4d0af32105d65ee376620171101-8375-1brksdl.png'
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "start_datetime", "end_datetime", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "ldcld"], ["description", "dcd"], ["start_price", 213], ["start_datetime", "2017-11-01 13:11:00"], ["end_datetime", "2022-11-01 13:11:00"], ["created_at", "2017-11-01 13:11:53.699694"], ["updated_at", "2017-11-01 13:11:53.699694"], ["user_id", 2], ["photo_file_name", "карта.png"], ["photo_content_type", "image/png"], ["photo_file_size", 17915], ["photo_updated_at", "2017-11-01 13:11:52.664211"]]
+  [1m[35m (26.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/7
+Completed 302 Found in 1095ms (ActiveRecord: 27.3ms)
+
+
+Started GET "/lots/7" for 127.0.0.1 at 2017-11-01 16:11:53 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 34ms (Views: 27.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots/" for 127.0.0.1 at 2017-11-01 16:12:03 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.8ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 43ms (Views: 37.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/lots/7" for 127.0.0.1 at 2017-11-01 16:12:07 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 21.3ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/lots/6" for 127.0.0.1 at 2017-11-01 16:12:11 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NZh+o/EvfAxs2zzG9yAkN75IzwgUPOvWflK8suX16IoonKKdnJKqXT+l/858SqRdXEA9uMsdTJA00ativFB0AQ==", "id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "lots" WHERE "lots"."id" = $1[0m  [["id", 6]]
+  [1m[35m (47.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots
+Completed 302 Found in 59ms (ActiveRecord: 50.2ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 16:12:11 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 35ms (Views: 30.8ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/lots/5" for 127.0.0.1 at 2017-11-01 16:12:17 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WRgyKaoRzwgaeSFJD9bB0Akl9ct58ydMkGM9IBu+JPREHO4Xx6wZWUkH4kGEvEG66y0He6bSgAra4CrwQhu4fw==", "id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "lots" WHERE "lots"."id" = $1[0m  [["id", 5]]
+  [1m[35m (150.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots
+Completed 302 Found in 157ms (ActiveRecord: 151.6ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 16:12:17 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 30ms (Views: 24.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/lots/7" for 127.0.0.1 at 2017-11-01 16:12:28 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 25ms (Views: 20.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/lots/7/edit" for 127.0.0.1 at 2017-11-01 16:12:29 +0300
+Processing by LotsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/edit.html.erb within layouts/application
+  Rendered lots/_form.html.erb (18.5ms)
+  Rendered lots/edit.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 44ms (Views: 39.1ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/lots/7" for 127.0.0.1 at 2017-11-01 16:12:34 +0300
+Processing by LotsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O7srkOEvcU41HwEcigjgfIiWMamOEqTl+pELvFuVQKAqPD13DKm57KI3JvTdNc2ilc07h74qJ0yJF8T7SrFZyg==", "lot"=>{"title"=>"ldcld", "description"=>"dcd", "start_price"=>"213", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"11", "start_datetime(3i)"=>"1", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"11", "end_datetime(1i)"=>"2022", "end_datetime(2i)"=>"11", "end_datetime(3i)"=>"1", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"11", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fcbf83e6810 @tempfile=#<Tempfile:/tmp/RackMultipart20171101-8375-1vtsuue.png>, @original_filename="Nexus_5_Front_View.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"lot[photo]\"; filename=\"Nexus_5_Front_View.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Update Lot", "id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/6eb2440323a6863c6b00064539cca9c520171101-8375-lxyim8.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/6eb2440323a6863c6b00064539cca9c520171101-8375-j0b76n.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/6eb2440323a6863c6b00064539cca9c520171101-8375-j0b76n.png[0]'
+Command :: convert '/tmp/6eb2440323a6863c6b00064539cca9c520171101-8375-j0b76n.png[0]' -auto-orient -resize "300x300>" '/tmp/9e06fd5a330403c447ed209eab66fe9220171101-8375-24ti59'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/6eb2440323a6863c6b00064539cca9c520171101-8375-j0b76n.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/6eb2440323a6863c6b00064539cca9c520171101-8375-j0b76n.png[0]'
+Command :: convert '/tmp/6eb2440323a6863c6b00064539cca9c520171101-8375-j0b76n.png[0]' -auto-orient -resize "100x100>" '/tmp/9e06fd5a330403c447ed209eab66fe9220171101-8375-ku2vi0'
+Command :: file -b --mime '/tmp/6eb2440323a6863c6b00064539cca9c520171101-8375-1umbpm2.png'
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "lots" SET "photo_file_name" = $1, "photo_file_size" = $2, "photo_updated_at" = $3, "updated_at" = $4 WHERE "lots"."id" = $5[0m  [["photo_file_name", "Nexus_5_Front_View.png"], ["photo_file_size", 364799], ["photo_updated_at", "2017-11-01 13:12:34.813537"], ["updated_at", "2017-11-01 13:12:35.434078"], ["id", 7]]
+[paperclip] deleting /home/pavlov/fs/auction/public/system/photos/7/original/карта.png
+[paperclip] deleting /home/pavlov/fs/auction/public/system/photos/7/medium/карта.png
+[paperclip] deleting /home/pavlov/fs/auction/public/system/photos/7/thumb/карта.png
+  [1m[35m (51.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/7
+Completed 302 Found in 690ms (ActiveRecord: 52.6ms)
+
+
+Started GET "/lots/7" for 127.0.0.1 at 2017-11-01 16:12:35 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 29ms (Views: 23.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/lots/7" for 127.0.0.1 at 2017-11-01 16:13:00 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 36ms (Views: 30.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/lots/" for 127.0.0.1 at 2017-11-01 16:14:01 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 30ms (Views: 26.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots/7" for 127.0.0.1 at 2017-11-01 16:14:04 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 26ms (Views: 21.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/lots/" for 127.0.0.1 at 2017-11-01 16:14:46 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 27ms (Views: 22.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/lots/7" for 127.0.0.1 at 2017-11-01 16:14:49 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (297.8ms)
+Completed 500 Internal Server Error in 306ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `lot' for #<#<Class:0x007fcbf811eb28>:0x007fcbf8489c68>
+Did you mean?  @lot):
+    30: </p>
+    31: 
+    32: <%= link_to 'Edit', edit_lot_path(@lot) %> |
+    33: <%= link_to 'Destroy', lot, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    34: <%= link_to 'Back', lots_path %>
+  
+app/views/lots/show.html.erb:33:in `_app_views_lots_show_html_erb__1099081608237679642_70257010300160'
+Started GET "/lots/7" for 127.0.0.1 at 2017-11-01 16:15:07 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/lots/7" for 127.0.0.1 at 2017-11-01 16:15:12 +0300
+Processing by LotsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"a/OqaO5dXDdb2/qLWIYFj3cBLpxKUaV7p9iinQLfwdp293ZWg+CKZgilOYPT7IXllQncLJVwAj3tW7VNW3pdUQ==", "id"=>"7"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "lots" WHERE "lots"."id" = $1[0m  [["id", 7]]
+  [1m[35m (50.8ms)[0m  [1m[35mCOMMIT[0m
+[paperclip] deleting /home/pavlov/fs/auction/public/system/photos/7/original/Nexus_5_Front_View.png
+[paperclip] deleting /home/pavlov/fs/auction/public/system/photos/7/medium/Nexus_5_Front_View.png
+[paperclip] deleting /home/pavlov/fs/auction/public/system/photos/7/thumb/Nexus_5_Front_View.png
+Redirected to http://localhost:3000/lots
+Completed 302 Found in 62ms (ActiveRecord: 53.3ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 16:15:13 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 37ms (Views: 29.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2017-11-01 16:15:14 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (21.2ms)
+  Rendered lots/new.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 73ms (Views: 68.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2017-11-01 16:15:31 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HTzCwsbzor+lHz/9qFZqZtPjP2oe2Jhw976fNcpdRgkYyaYsSNGyRi45/QKYoWCNgsrf7P4hLG+ndwedWaXDlg==", "lot"=>{"title"=>"nexus", "description"=>"5", "start_price"=>"12000", "start_datetime(1i)"=>"2017", "start_datetime(2i)"=>"11", "start_datetime(3i)"=>"1", "start_datetime(4i)"=>"13", "start_datetime(5i)"=>"15", "end_datetime(1i)"=>"2018", "end_datetime(2i)"=>"11", "end_datetime(3i)"=>"1", "end_datetime(4i)"=>"13", "end_datetime(5i)"=>"15", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fcc053e9c60 @tempfile=#<Tempfile:/tmp/RackMultipart20171101-8375-w3k16.png>, @original_filename="Nexus_5_Front_View (другая копия).png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"lot[photo]\"; filename=\"Nexus_5_Front_View (\xD0\xB4\xD1\x80\xD1\x83\xD0\xB3\xD0\xB0\xD1\x8F \xD0\xBA\xD0\xBE\xD0\xBF\xD0\xB8\xD1\x8F).png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Command :: file -b --mime '/tmp/f92033638fc5e90ceb447d10542d1d8c20171101-8375-e3azk5.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/9bc1380c3b1631fc0c91cbdb2202e22320171101-8375-b9y495.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/9bc1380c3b1631fc0c91cbdb2202e22320171101-8375-b9y495.png[0]'
+Command :: convert '/tmp/9bc1380c3b1631fc0c91cbdb2202e22320171101-8375-b9y495.png[0]' -auto-orient -resize "300x300>" '/tmp/1e4dd5f66c014efca2242f9600fcde1c20171101-8375-69y5cu'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/9bc1380c3b1631fc0c91cbdb2202e22320171101-8375-b9y495.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/9bc1380c3b1631fc0c91cbdb2202e22320171101-8375-b9y495.png[0]'
+Command :: convert '/tmp/9bc1380c3b1631fc0c91cbdb2202e22320171101-8375-b9y495.png[0]' -auto-orient -resize "100x100>" '/tmp/1e4dd5f66c014efca2242f9600fcde1c20171101-8375-c8h6nj'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/f92033638fc5e90ceb447d10542d1d8c20171101-8375-wdtqpz.png'
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "start_datetime", "end_datetime", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "nexus"], ["description", "5"], ["start_price", 12000], ["start_datetime", "2017-11-01 13:15:00"], ["end_datetime", "2018-11-01 13:15:00"], ["created_at", "2017-11-01 13:15:32.037620"], ["updated_at", "2017-11-01 13:15:32.037620"], ["user_id", 2], ["photo_file_name", "Nexus_5_Front_View_(другая_копия).png"], ["photo_content_type", "image/png"], ["photo_file_size", 364799], ["photo_updated_at", "2017-11-01 13:15:31.454375"]]
+  [1m[35m (57.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/lots/8
+Completed 302 Found in 658ms (ActiveRecord: 58.4ms)
+
+
+Started GET "/lots/8" for 127.0.0.1 at 2017-11-01 16:15:32 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 39ms (Views: 32.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-01 16:15:39 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.8ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 58ms (Views: 53.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-02 11:41:26 +0300
+  [1m[35m (112.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (72.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (38.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (70.6ms)
+Completed 200 OK in 666ms (Views: 420.0ms | ActiveRecord: 178.2ms)
+
+
+Started GET "/lots/8" for 127.0.0.1 at 2017-11-02 11:41:44 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 45ms (Views: 19.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/lots" for 127.0.0.1 at 2017-11-02 11:46:41 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.erb within layouts/application
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 39ms (Views: 33.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/lots/8" for 127.0.0.1 at 2017-11-02 11:46:48 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering lots/show.html.erb within layouts/application
+  Rendered lots/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 28ms (Views: 21.8ms | ActiveRecord: 1.7ms)
+
+

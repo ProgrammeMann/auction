@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start price</th>
+      <th>Start datetime</th>
+      <th>End datetime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lots.each do |lot| %>
+      <tr>
+        <td><%= link_to lot.title, lot %></td>
+        <td><%= lot.description %></td>
+        <td><%= lot.start_price %></td>
+        <td><%= lot.start_datetime %></td>
+        <td><%= lot.end_datetime %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lot', new_lot_path %>
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
