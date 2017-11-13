@@ -1,4 +1,4 @@
-<%= form_with(model: lot, local: true) do |form| %>
+<%= form_for(lot) do |form| %>
   <% if lot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(lot.errors.count, "error") %> prohibited this lot from being saved:</h2>
