@@ -20,7 +20,8 @@ table
         td
 
 = link_to 'New Lot ', new_lot_path
-= link_to 'Sign out', destroy_user_session_path, method: :delete
+= link_to 'Sign out ', destroy_user_session_path, method: :delete
 
-
-=link_to 'my lots', my_lots_url
+h3 My account
+=link_to 'My lots ', my_lots_url
+=link_to 'Edit my account',edit_user_registration_url
