@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106135347) do
+ActiveRecord::Schema.define(version: 20171127115221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,12 @@ ActiveRecord::Schema.define(version: 20171106135347) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer "max_rate"
   end
 
   create_table "rates", force: :cascade do |t|
     t.integer "user_id"
     t.integer "lot_id"
-    t.integer "users_rate"
+    t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,5 +1,5 @@
 p#notice= notice
-h1 All Lots
+h1 My Lots
 table
   thead
     tr
@@ -20,6 +20,5 @@ table
         td
 
 = link_to 'New Lot ', new_lot_path
-= link_to 'Sign out', destroy_user_session_path, method: :delete
-
-=link_to 'all lots', lots_url
+= link_to 'Sign out ', destroy_user_session_path, method: :delete
+=link_to 'All lots', lots_url

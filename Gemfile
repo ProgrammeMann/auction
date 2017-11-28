@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.3'
+gem 'rails', '5.1.3'
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -37,6 +37,12 @@ gem 'devise'
 
 gem "paperclip", "~> 5.0.0"
 
+gem 'draper', "~> 3.0.0"
+gem 'decent_exposure', '3.0.0'
+gem 'decent_decoration', '~> 0.1.0'
+gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-serializers-xml'
+
+gem 'slim'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -2,6 +2,12 @@ class LotsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_lot, only: [:show, :edit, :update, :destroy]
 
+  expose_decorated :lot
+  expose :rate, -> { Rate.new }
+
+
+
+  expose_decorated :lot
   # GET /lots
   # GET /lots.json
   def index
