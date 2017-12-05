@@ -20,7 +20,7 @@ p
 
 = link_to 'Edit', edit_lot_path(@lot)
 |  | 
-= link_to 'Destroy', lot_path, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'Destroy', lot_path(@lot), method: :delete, data: { confirm: 'Are you sure?' }
 |  | 
 = link_to 'Back', lots_path
 

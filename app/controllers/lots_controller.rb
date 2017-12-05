@@ -1,13 +1,15 @@
 class LotsController < ApplicationController
+
   before_action :authenticate_user!
   before_action :set_lot, only: [:show, :edit, :update, :destroy]
+  # before_action :check_ended_lot
+
 
   expose_decorated :lot
   expose :rate, -> { Rate.new }
 
 
 
-  expose_decorated :lot
   # GET /lots
   # GET /lots.json
   def index
@@ -64,6 +66,16 @@ class LotsController < ApplicationController
       redirect_to lots_url, notice: 'Haha, its not your lot.' 
     end
   end
+
+
+  # def check_ended_lot
+  #   if condition
+      
+  #   else
+      
+  #   end
+    
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
