@@ -26,4 +26,8 @@ p
 
 = render "rates/form"
 - if lot.rates_exists?
-  = render lot.max_rate
+  h2 max rate to this lot_path
+  = @result.getvalue(0,0) 
+  h2 your max rate
+  = @result_user.getvalue(0,0)
+  

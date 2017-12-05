@@ -17,6 +17,8 @@ class LotsController < ApplicationController
   # GET /lots/1
   # GET /lots/1.json
   def show
+    @result = ActiveRecord::Base.connection.execute("SELECT max(rates.value) FROM rates WHERE (lot_id = #{@lot.id})")
+    @result_user = ActiveRecord::Base.connection.execute("SELECT max(rates.value) FROM rates WHERE (lot_id = #{@lot.id} AND user_id = #{current_user.id})")
   end
 
   # GET /lots/new
