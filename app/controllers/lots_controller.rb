@@ -40,6 +40,7 @@ class LotsController < ApplicationController
   def create
     @lot = current_user.lots.new(lot_params)
       if @lot.save
+        CheckEndTimeWorker.perform_at(@lot.end_datetime, @lot.id)
         redirect_to @lot, notice: 'Lot was successfully created.'
       else
         render :new

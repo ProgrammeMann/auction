@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+  body
+    h1
+      | Hello #{@user.id}!
+    p
+        / dont now, work it?
+      | Your rate on lot (http://localhost:3000/lots/#{@user.rate.lot_id}), write to the seller.
+      br/
+    
+    p Thanks for joining our auction!
