@@ -1,0 +1,23 @@
+ Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+config/database.yml
+.env
+
+/public/packs
+/public/system
+/public/packs-test
+/public/uploads
+
+/node_modules
+yarn-error.log
+
+/coverage
+
+.byebug_history
