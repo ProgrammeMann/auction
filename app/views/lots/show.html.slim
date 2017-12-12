@@ -1,0 +1,33 @@
+p#notice
+  = notice
+p
+  strong Title:
+  = @lot.title
+p
+  strong Description:
+  = @lot.description
+p
+  strong Start price:
+  = @lot.start_price
+p
+  strong Start datetime:
+  = @lot.start_datetime
+p
+  strong End datetime:
+  = @lot.end_datetime
+p
+  = image_tag @lot.photo.url(:medium)
+
+= link_to 'Edit', edit_lot_path(@lot)
+|  | 
+= link_to 'Destroy', lot_path(@lot), method: :delete, data: { confirm: 'Are you sure?' }
+|  | 
+= link_to 'Back', lots_path
+
+= render "rates/form"
+- if lot.rates_exists?
+  h2 max rate to this lot
+  = @result.getvalue(0,0) 
+  h2 your max rate
+  = @result_user.getvalue(0,0)
+  

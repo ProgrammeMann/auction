@@ -1,0 +1,24 @@
+p#notice= notice
+h1 My Lots
+table
+  thead
+    tr
+      th Title
+      th Description
+      th Start price
+      th Start datetime
+      th End datetime
+      th colspan="3" 
+  tbody
+    - @lots.each do |lot|
+      tr
+        td= link_to lot.title, lot
+        td= lot.description
+        td= lot.start_price
+        td= lot.start_datetime
+        td= lot.end_datetime
+        td
+
+= link_to 'New Lot ', new_lot_path
+= link_to 'Sign out ', destroy_user_session_path, method: :delete
+=link_to 'All lots', lots_url
