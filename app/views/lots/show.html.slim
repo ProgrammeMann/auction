@@ -1,26 +1,24 @@
-p#notice
-  = notice
 p
   strong Title:
-  = @lot.title
+  = lot.title
 p
   strong Description:
-  = @lot.description
+  = lot.description
 p
   strong Start price:
-  = @lot.start_price
+  = lot.start_price
 p
   strong Start datetime:
-  = @lot.start_datetime
+  = lot.start_datetime
 p
   strong End datetime:
-  = @lot.end_datetime
+  = lot.end_datetime
 p
-  = image_tag @lot.photo.url(:medium)
+  = image_tag lot.photo.url(:medium)
 
-= link_to 'Edit', edit_lot_path(@lot)
+= link_to 'Edit', edit_lot_path(lot)
 |  | 
-= link_to 'Destroy', lot_path(@lot), method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'Destroy', lot, method: :delete, data: { confirm: 'Are you sure?' }
 |  | 
 = link_to 'Back', lots_path
 

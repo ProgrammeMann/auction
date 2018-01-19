@@ -8,5 +8,6 @@ class Lot < ApplicationRecord
 	validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	has_many :rates, dependent: :destroy
+	belongs_to :user
 
 end

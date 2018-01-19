@@ -2,9 +2,8 @@ class RatesController < ApplicationController
   before_action :authenticate_user!
 
   before_action :set_rate, only: [:show, :edit, :update, :destroy]
-  before_action :set_lot, only: [:create]
-
   expose_decorated :rate
+  expose_decorated :lot
 
 
   def index
@@ -20,7 +19,8 @@ class RatesController < ApplicationController
     if rate.save
       flash[:notice] = "Your rate is accepted" 
     end
-    render template: "lots/show"
+    
+    redirect_to lot
   end
 
   def destroy
@@ -28,9 +28,6 @@ class RatesController < ApplicationController
   end
 
   private
-    def set_lot
-      @lot = Lot.find(params[:lot_id])
-    end
 
     def rate_params
       params.require(:rate).permit(:lot_id, :user_id, :value)

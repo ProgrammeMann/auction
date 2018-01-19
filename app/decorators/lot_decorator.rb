@@ -3,7 +3,7 @@ class LotDecorator < ApplicationDecorator
       
   decorates_association :rates
   def rates_exists?
-	object.rates.exists?
+	object.rates.any?
   end
 
   def auction_ended?
