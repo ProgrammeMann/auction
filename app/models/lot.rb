@@ -4,7 +4,7 @@ class Lot < ApplicationRecord
 	  :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
 	  :url => "/system/:attachment/:id/:style/:filename", 
 	  :styles => { :medium => "300x300>", :thumb => "100x100>" },
-	  :default_url => "path to default image"
+	  :default_url => "/app/assets/images/default.png"
 	validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	has_many :rates, dependent: :destroy

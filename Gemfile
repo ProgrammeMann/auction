@@ -31,6 +31,7 @@ gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-se
 gem 'slim'
 
 gem 'sidekiq'
+gem 'sinatra'
 gem 'redis'
 gem 'redis-namespace'
 

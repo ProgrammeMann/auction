@@ -12,4 +12,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
+
 end
