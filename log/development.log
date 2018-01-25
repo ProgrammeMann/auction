@@ -22838,3 +22838,194 @@ Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2018-01-23 16:
 Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2018-01-23 16:37:30 +0300
 Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2018-01-23 16:37:30 +0300
 Started GET "/sidekiq/images/status.png" for 127.0.0.1 at 2018-01-23 16:37:31 +0300
+Started GET "/lots" for 127.0.0.1 at 2018-01-25 16:25:43 +0300
+  [1m[35m (45.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LotsController#index as HTML
+Started GET "/letter_opener" for 127.0.0.1 at 2018-01-25 16:25:44 +0300
+Processing by LetterOpenerWeb::LettersController#index as HTML
+  Rendering .bundle/ruby/2.4.0/gems/letter_opener_web-1.3.1/app/views/letter_opener_web/letters/index.html.erb within layouts/letter_opener_web/application
+  Rendered .bundle/ruby/2.4.0/gems/letter_opener_web-1.3.1/app/views/letter_opener_web/letters/index.html.erb within layouts/letter_opener_web/application (22.5ms)
+  [1m[36mUser Load (128.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.slim within layouts/application
+  [1m[36mLot Load (31.1ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.slim within layouts/application (122.9ms)
+Started GET "/sidekiq/images/favicon.ico" for 127.0.0.1 at 2018-01-25 16:25:45 +0300
+Completed 200 OK in 981ms (Views: 423.0ms | ActiveRecord: 378.1ms)
+
+
+Completed 200 OK in 918ms (Views: 912.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sidekiq/retries" for 127.0.0.1 at 2018-01-25 16:25:45 +0300
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2018-01-25 16:25:46 +0300
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2018-01-25 16:25:46 +0300
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2018-01-25 16:25:46 +0300
+Started GET "/letter_opener/1516714632_f642f18/rich" for 127.0.0.1 at 2018-01-25 16:25:46 +0300
+Processing by LetterOpenerWeb::LettersController#show as HTML
+  Parameters: {"id"=>"1516714632_f642f18", "style"=>"rich"}
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 95ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sidekiq/images/status.png" for 127.0.0.1 at 2018-01-25 16:25:46 +0300
+Started GET "/sidekiq/images/favicon.ico" for 127.0.0.1 at 2018-01-25 16:25:46 +0300
+Started GET "/my_lots" for 127.0.0.1 at 2018-01-25 16:36:00 +0300
+Processing by MyLotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering my_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered my_lots/index.html.slim within layouts/application (27.3ms)
+Completed 200 OK in 91ms (Views: 49.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/lots/28" for 127.0.0.1 at 2018-01-25 16:36:04 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"28"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Completed 404 Not Found in 61ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Lot with 'id'=28):
+  
+app/controllers/lots_controller.rb:18:in `show'
+Started GET "/lots" for 127.0.0.1 at 2018-01-25 16:36:09 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots"[0m
+  Rendered lots/index.html.slim within layouts/application (12.4ms)
+Completed 200 OK in 57ms (Views: 52.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/my_lots" for 127.0.0.1 at 2018-01-25 16:36:13 +0300
+Processing by MyLotsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering my_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered my_lots/index.html.slim within layouts/application (13.2ms)
+Completed 200 OK in 43ms (Views: 38.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/my_lots" for 127.0.0.1 at 2018-01-25 16:36:19 +0300
+Processing by MyLotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering my_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered my_lots/index.html.slim within layouts/application (13.2ms)
+Completed 200 OK in 46ms (Views: 41.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/my_lots" for 127.0.0.1 at 2018-01-25 16:46:51 +0300
+Processing by MyLotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering my_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered my_lots/index.html.slim within layouts/application (44.4ms)
+Completed 200 OK in 117ms (Views: 80.3ms | ActiveRecord: 9.9ms)
+
+
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" ORDER BY "lots"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLot Load (39.2ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE (end_datetime > '2018-01-25 13:52:52.052105') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLot Load (1.3ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE (end_datetime < '2018-01-25 13:53:04.968238') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE (end_datetime <= '2018-01-25 13:54:42.671424') LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/my_lots" for 127.0.0.1 at 2018-01-25 17:00:51 +0300
+Processing by MyLotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering my_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE "lots"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered my_lots/index.html.slim within layouts/application (43.8ms)
+Completed 200 OK in 116ms (Views: 76.5ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-25 17:01:00 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.slim within layouts/application
+  [1m[36mLot Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "lots" WHERE (end_datetime <= '2018-01-25 14:01:00.550440') LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime <= '2018-01-25 14:01:00.550440')[0m
+  Rendered lots/index.html.slim within layouts/application (58.2ms)
+Completed 200 OK in 92ms (Views: 86.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/finish_lots" for 127.0.0.1 at 2018-01-25 17:01:04 +0300
+Processing by FinishLotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering finish_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime <= '2018-01-25 14:01:04.599638')[0m
+  Rendered finish_lots/index.html.slim within layouts/application (10.4ms)
+Completed 200 OK in 42ms (Views: 36.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-25 17:01:53 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.slim within layouts/application
+  [1m[36mLot Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "lots" WHERE (end_datetime <= '2018-01-25 14:01:54.065664') LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime <= '2018-01-25 14:01:54.065664')[0m
+  Rendered lots/index.html.slim within layouts/application (31.8ms)
+Completed 200 OK in 89ms (Views: 54.2ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/finish_lots" for 127.0.0.1 at 2018-01-25 17:01:56 +0300
+Processing by FinishLotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering finish_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime > '2018-01-25 14:01:56.448515')[0m
+  Rendered finish_lots/index.html.slim within layouts/application (8.9ms)
+Completed 200 OK in 43ms (Views: 37.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/finish_lots" for 127.0.0.1 at 2018-01-25 17:08:20 +0300
+Processing by FinishLotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering finish_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime > '2018-01-25 14:08:20.872286')[0m
+  Rendered finish_lots/index.html.slim within layouts/application (10.9ms)
+Completed 200 OK in 49ms (Views: 43.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/lots/29" for 127.0.0.1 at 2018-01-25 17:08:26 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[35m (158.7ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE lot_id = '29'[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE (lot_id = '29' AND user_id = '2')[0m
+  Rendering lots/show.html.slim within layouts/application
+  Rendered rates/_form.html.slim (174.3ms)
+  [1m[36mRate Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "rates" WHERE "rates"."lot_id" = $1 LIMIT $2[0m  [["lot_id", 29], ["LIMIT", 1]]
+  Rendered lots/show.html.slim within layouts/application (192.1ms)
+Completed 200 OK in 392ms (Views: 219.4ms | ActiveRecord: 165.2ms)
+
+
+Started GET "/finish_lots" for 127.0.0.1 at 2018-01-25 17:08:52 +0300
+Processing by FinishLotsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering finish_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.6ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime > '2018-01-25 14:08:52.210882')[0m
+  Rendered finish_lots/index.html.slim within layouts/application (10.7ms)
+Completed 200 OK in 48ms (Views: 41.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/finish_lots" for 127.0.0.1 at 2018-01-25 17:09:16 +0300
+Processing by FinishLotsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering finish_lots/index.html.slim within layouts/application
+  [1m[36mLot Load (0.7ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime <= '2018-01-25 14:09:16.150053')[0m
+  Rendered finish_lots/index.html.slim within layouts/application (29.0ms)
+Completed 200 OK in 88ms (Views: 51.9ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-25 17:09:28 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering lots/index.html.slim within layouts/application
+  [1m[36mLot Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "lots" WHERE (end_datetime > '2018-01-25 14:09:28.363778') LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLot Load (0.8ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime > '2018-01-25 14:09:28.363778')[0m
+  Rendered lots/index.html.slim within layouts/application (13.6ms)
+Completed 200 OK in 47ms (Views: 40.3ms | ActiveRecord: 1.7ms)
+
+

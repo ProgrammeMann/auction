@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   	resources :rates
   end
   resources :my_lots
+  resources :finish_lots
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  

@@ -11,7 +11,7 @@ class LotsController < ApplicationController
 
 
   def index
-    @lots = Lot.all
+    @lots = Lot.where("end_datetime > ?", DateTime.now)
   end
 
   def show
