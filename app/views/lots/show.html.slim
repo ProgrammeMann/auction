@@ -22,10 +22,14 @@ p
 |  | 
 = link_to 'Back', lots_path
 
-= render "rates/form"
-- if lot.rates_exists?
-  h2 max rate to this lot
+- if lot.end_datetime <= DateTime.now
+  h2 the auction ended! Max rate:
   = @result.getvalue(0,0) 
-  h2 your max rate
-  = @result_user.getvalue(0,0)
+- else
+  = render "rates/form"
+  - if lot.rates_exists?
+    h2 max rate to this lot
+    = @result.getvalue(0,0) 
+    h2 your max rate
+    = @result_user.getvalue(0,0)
   
