@@ -97,6 +97,9 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    foundation-rails (5.4.5.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.7)
@@ -276,6 +279,7 @@ DEPENDENCIES
   decent_exposure (= 3.0.0)
   devise
   draper (~> 3.0.0)
+  foundation-rails
   letter_opener
   letter_opener_web
   listen (>= 3.0.5, < 3.2)

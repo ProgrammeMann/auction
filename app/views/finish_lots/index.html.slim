@@ -1,9 +1,8 @@
-p#notice= notice
-h1 Ended auctions
-table
+h2 Ended auctions
+table style=("width: 100%; height: 100%;") 
   thead
     tr
-      th Title
+      th Lot
       th Description
       th Start price
       th Start datetime
@@ -15,10 +14,6 @@ table
         td= link_to lot.title, lot
         td= lot.description
         td= lot.start_price
-        td= lot.start_datetime
-        td= lot.end_datetime
+        td= lot.start_datetime.strftime("%H:%M, %d %B %Y")
+        td= lot.end_datetime.strftime("%H:%M, %d %B %Y")
         td
-
-= link_to 'New Lot ', new_lot_path
-= link_to 'Sign out ', destroy_user_session_path, method: :delete
-=link_to 'All lots', lots_url

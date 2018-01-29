@@ -12,4 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
  */
+.size-top-bar-links{
+	width: 16%;
+}
+
+.container{
+	margin-top: 7px;
+}

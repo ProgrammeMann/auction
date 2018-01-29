@@ -1,35 +1,38 @@
-p
-  strong Title:
-  = lot.title
-p
-  strong Description:
-  = lot.description
-p
-  strong Start price:
-  = lot.start_price
-p
-  strong Start datetime:
-  = lot.start_datetime
-p
-  strong End datetime:
-  = lot.end_datetime
-p
-  = image_tag lot.photo.url(:medium)
+.medium-8.columns
+  h2 = lot.title
+  h3 
+    strong Description: 
+    = lot.description
+  h3
+    strong Start price: 
+    = lot.start_price
+  p
+    strong Start datetime: 
+    = lot.start_datetime
+  p
+    strong End datetime: 
+    = lot.end_datetime
 
-= link_to 'Edit', edit_lot_path(lot)
-|  | 
-= link_to 'Destroy', lot, method: :delete, data: { confirm: 'Are you sure?' }
-|  | 
-= link_to 'Back', lots_path
+  = link_to 'Edit', edit_lot_path(lot)
+  |  | 
+  = link_to 'Destroy', lot, method: :delete, data: { confirm: 'Are you sure?' }
+  |  | 
+  = link_to 'Back', lots_path
 
-- if lot.end_datetime <= DateTime.now
-  h2 the auction ended! Max rate:
-  = @result.getvalue(0,0) 
-- else
-  = render "rates/form"
-  - if lot.rates_exists?
-    h2 max rate to this lot
+.medium-4.columns
+  p
+    = image_tag lot.photo.url(:medium)
+
+.medium-4.collums
+  - if lot.end_datetime <= DateTime.now
+    h4 The auction ended! Max rate:
     = @result.getvalue(0,0) 
-    h2 your max rate
-    = @result_user.getvalue(0,0)
-  
+  - else
+    = render "rates/form"
+    - if lot.rates_exists?
+      h4 
+        strong Max rate to this lot: 
+        = @result.getvalue(0,0) 
+      h4 
+        strong Your max rate: 
+        = @result_user.getvalue(0,0)
