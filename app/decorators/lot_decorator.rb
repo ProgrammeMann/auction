@@ -6,8 +6,4 @@ class LotDecorator < ApplicationDecorator
 	object.rates.any?
   end
 
-  def auction_ended?
-  	# Yegor, you need do this
-  end
-
 end
