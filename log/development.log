@@ -36485,3 +36485,204 @@ http://localhost:3000/lots/46
 write to the seller - egor@mail.ru.
 >>>>>>> f7849c1857144c248f00e129a851268f6d8a8403
 
+  [1m[36mRate Load (2.3ms)[0m  [1m[34mSELECT  "rates".* FROM "rates" WHERE "rates"."lot_id" = $1 ORDER BY "rates"."value" DESC LIMIT $2[0m  [["lot_id", 49], ["LIMIT", 1]]
+  [1m[36mRate Load (1.5ms)[0m  [1m[34mSELECT  "rates".* FROM "rates" WHERE "rates"."lot_id" = $1 ORDER BY "rates"."value" DESC LIMIT $2[0m  [["lot_id", 47], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-02-28 17:57:04 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LotsController#index as HTML
+Completed 401 Unauthorized in 19ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-02-28 17:57:04 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.1ms)
+  Rendered application/_navigation.html.erb (0.4ms)
+  Rendered application/_messages.html.slim (4.8ms)
+Completed 200 OK in 917ms (Views: 885.8ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-02-28 17:57:26 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kITsoblRVGYMgmjd0qjEBA40JZybHD5ihQ4Mh2ipQS8+WiQBKTrr0wB9uP+eO3FAdc35Nkk2F75zD5jN5gzxmA==", "user"=>{"email"=>"egor@mail.ru", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "egor@mail.ru"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 290ms (ActiveRecord: 1.5ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kITsoblRVGYMgmjd0qjEBA40JZybHD5ihQ4Mh2ipQS8+WiQBKTrr0wB9uP+eO3FAdc35Nkk2F75zD5jN5gzxmA==", "user"=>{"email"=>"egor@mail.ru", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.9ms)
+  Rendered application/_navigation.html.erb (0.4ms)
+  Rendered application/_messages.html.slim (4.0ms)
+Completed 200 OK in 417ms (Views: 178.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2018-02-28 17:57:32 +0300
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-02-28 17:57:40 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.5ms)
+  Rendered application/_navigation.html.erb (0.6ms)
+  Rendered application/_messages.html.slim (16.2ms)
+Completed 200 OK in 183ms (Views: 182.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-02-28 17:57:54 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"In91PEadBVSXowPQ7PS9FpEuZvcn3x957eR6kUkn+7qMob2c1va64Ztc0/KgZwhS6te6XfX1NqUb5e7bx4JLDQ==", "user"=>{"email"=>"egor@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "egor@mail.ru"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.2ms)
+  Rendered application/_navigation.html.erb (0.4ms)
+  Rendered application/_messages.html.slim (4.9ms)
+Completed 200 OK in 428ms (Views: 174.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-02-28 17:58:12 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iErjixoK9YAqP5cDRxOTrgwtSZR3X0dHd+bINNhYS/cmlCsrimFKNSbARyELgCbqd9SVPqV1bpuB51x+Vv37QA==", "user"=>{"email"=>"egor1111@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "egor1111@mail.ru"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "egor1111@mail.ru"], ["encrypted_password", "$2a$11$89UcQ1uPZ2mhRYL1uaCE9.4El62aUvEx6MPM.e.pOzESSERv86dQS"], ["created_at", "2018-02-28 17:58:12.573532"], ["updated_at", "2018-02-28 17:58:12.573532"]]
+  [1m[35m (17.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-02-28 17:58:12.593928"], ["last_sign_in_at", "2018-02-28 17:58:12.593928"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-02-28 17:58:12.595132"], ["id", 7]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:5000/
+Completed 302 Found in 282ms (ActiveRecord: 24.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-28 17:58:12 +0300
+Processing by LotsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/index.html.slim within layouts/application
+  [1m[36mLot Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "lots" WHERE (end_datetime > '2018-02-28 17:58:12.631352') LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT "lots".* FROM "lots" WHERE (end_datetime > '2018-02-28 17:58:12.631352')[0m
+  Rendered lots/index.html.slim within layouts/application (38.2ms)
+  Rendered application/_navigation.html.erb (0.4ms)
+  Rendered application/_messages.html.slim (4.7ms)
+Completed 200 OK in 213ms (Views: 201.2ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/lots/new" for 127.0.0.1 at 2018-02-28 17:58:16 +0300
+Processing by LotsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering lots/new.html.erb within layouts/application
+  Rendered lots/_form.html.erb (13.6ms)
+  Rendered lots/new.html.erb within layouts/application (15.1ms)
+  Rendered application/_navigation.html.erb (11.9ms)
+  Rendered application/_messages.html.slim (4.2ms)
+Completed 200 OK in 179ms (Views: 174.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/lots" for 127.0.0.1 at 2018-02-28 17:58:42 +0300
+Processing by LotsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HGyn70Vuwz7+d49GYeC1gh2fKIjvzZA+K+UN0Dftc3Wysm9P1QV8i/KIX2QtcwDGZmb0Ij3nueLd5JmauUjDwg==", "lot"=>{"title"=>"azaaza", "description"=>"azazaz", "start_price"=>"1234", "start_datetime"=>"12:01 12-11-18", "end_datetime"=>"2018-02-28 18:00", "photo"=>#<ActionDispatch::Http::UploadedFile:0x007fa286f89c80 @tempfile=#<Tempfile:/tmp/RackMultipart20180228-22127-ikq4pt.png>, @original_filename="ib1.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"lot[photo]\"; filename=\"ib1.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Lot"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+Command :: file -b --mime '/tmp/b731e651ca1284d02e93ae485c06473620180228-22127-4tpt04.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b731e651ca1284d02e93ae485c06473620180228-22127-cexm2r.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/b731e651ca1284d02e93ae485c06473620180228-22127-cexm2r.png[0]'
+Command :: convert '/tmp/b731e651ca1284d02e93ae485c06473620180228-22127-cexm2r.png[0]' -auto-orient -resize "300x300>" '/tmp/ba4df6efb9dab3dbcb734c48718ac92c20180228-22127-drmtsd'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b731e651ca1284d02e93ae485c06473620180228-22127-cexm2r.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/b731e651ca1284d02e93ae485c06473620180228-22127-cexm2r.png[0]'
+Command :: convert '/tmp/b731e651ca1284d02e93ae485c06473620180228-22127-cexm2r.png[0]' -auto-orient -resize "100x100>" '/tmp/ba4df6efb9dab3dbcb734c48718ac92c20180228-22127-a15aoj'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/b731e651ca1284d02e93ae485c06473620180228-22127-tjza1m.png'
+  [1m[35mSQL (45.1ms)[0m  [1m[32mINSERT INTO "lots" ("title", "description", "start_price", "start_datetime", "end_datetime", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "azaaza"], ["description", "azazaz"], ["start_price", 1234], ["start_datetime", "0012-11-18 12:01:00"], ["end_datetime", "2018-02-28 18:00:00"], ["created_at", "2018-02-28 17:58:43.989149"], ["updated_at", "2018-02-28 17:58:43.989149"], ["user_id", 7], ["photo_file_name", "ib1.png"], ["photo_content_type", "image/png"], ["photo_file_size", 149340], ["photo_updated_at", "2018-02-28 17:58:42.754095"]]
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:5000/lots/51
+Completed 302 Found in 1347ms (ActiveRecord: 87.6ms)
+
+
+Started GET "/lots/51" for 127.0.0.1 at 2018-02-28 17:58:44 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE lot_id = '51'[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE (lot_id = '51' AND user_id = '7')[0m
+  Rendering lots/show.html.slim within layouts/application
+  Rendered rates/_form.html.slim (22.5ms)
+  [1m[36mRate Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "rates" WHERE "rates"."lot_id" = $1 LIMIT $2[0m  [["lot_id", 51], ["LIMIT", 1]]
+  Rendered lots/show.html.slim within layouts/application (44.5ms)
+  Rendered application/_navigation.html.erb (0.5ms)
+  Rendered application/_messages.html.slim (4.6ms)
+Completed 200 OK in 202ms (Views: 186.2ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/lots/51/rates" for 127.0.0.1 at 2018-02-28 17:58:50 +0300
+Processing by RatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PChUpnVgsnjUqM5Hrvd+tniYJIqhMVENTyAJLdQflWqS9pwG5QsNzdhXHmXiZMvyA2H4IHMbeNG5IZ1nWrol3Q==", "rate"=>{"lot_id"=>"51", "value"=>"1346"}, "commit"=>"Create Rate", "lot_id"=>"51"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE (lot_id = 51)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "rates" ("user_id", "lot_id", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 7], ["lot_id", 51], ["value", 1346], ["created_at", "2018-02-28 17:58:50.657141"], ["updated_at", "2018-02-28 17:58:50.657141"]]
+  [1m[35m (120.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLot Load (0.8ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+Redirected to http://localhost:5000/lots/51
+Completed 302 Found in 141ms (ActiveRecord: 123.9ms)
+
+
+Started GET "/lots/51" for 127.0.0.1 at 2018-02-28 17:58:50 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE lot_id = '51'[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE (lot_id = '51' AND user_id = '7')[0m
+  Rendering lots/show.html.slim within layouts/application
+  Rendered rates/_form.html.slim (7.2ms)
+  [1m[36mRate Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "rates" WHERE "rates"."lot_id" = $1 LIMIT $2[0m  [["lot_id", 51], ["LIMIT", 1]]
+  Rendered lots/show.html.slim within layouts/application (34.1ms)
+  Rendered application/_navigation.html.erb (0.4ms)
+  Rendered application/_messages.html.slim (4.8ms)
+Completed 200 OK in 186ms (Views: 177.2ms | ActiveRecord: 3.2ms)
+
+
+  [1m[36mRate Load (1.0ms)[0m  [1m[34mSELECT  "rates".* FROM "rates" WHERE "rates"."lot_id" = $1 ORDER BY "rates"."value" DESC LIMIT $2[0m  [["lot_id", 51], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mLot Load (0.5ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering user_mailer/winner_email.text.erb within layouts/mailer
+  Rendered user_mailer/winner_email.text.erb within layouts/mailer (1.4ms)
+UserMailer#winner_email: processed outbound mail in 470.3ms
+Sent mail to egor1111@mail.ru (27.6ms)
+Date: Wed, 28 Feb 2018 18:00:01 +0300
+To: egor1111@mail.ru
+Message-ID: <5a96c3f18a903_56703fd5fa9b84488359f@pavlov-laptop.mail>
+Subject: You win
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi egor1111@mail.ru,
+
+Your rate on lot 
+
+http://localhost:3000/lots/51
+
+write to the seller - egor1111@mail.ru.
+
+Started GET "/lots/51" for 127.0.0.1 at 2018-02-28 18:02:37 +0300
+Processing by LotsController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mLot Load (0.4ms)[0m  [1m[34mSELECT  "lots".* FROM "lots" WHERE "lots"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE lot_id = '51'[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT max(rates.value) FROM rates WHERE (lot_id = '51' AND user_id = '7')[0m
+  Rendering lots/show.html.slim within layouts/application
+  Rendered lots/show.html.slim within layouts/application (9.5ms)
+  Rendered application/_navigation.html.erb (0.4ms)
+  Rendered application/_messages.html.slim (4.0ms)
+Completed 200 OK in 180ms (Views: 173.8ms | ActiveRecord: 2.1ms)
+
+

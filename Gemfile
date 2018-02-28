@@ -44,6 +44,8 @@ gem 'foundation-rails'
 
 gem 'rubocop', require: false
 
+gem 'foreman', require: false
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
